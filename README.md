@@ -26,6 +26,40 @@ docker-compose run app sh -c "django-admin.py startproject app ."
 docker-compose run app sh -c "python manage.py startapp core"
 ```
 
+### Settings
+
+In the `app/app/settings.py` add `core` or the name of the app that you created into INSTALLED_APPS
+
+```python
+Example:
+...
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'core',
+]
+```
+
+### Database
+
+In the `app/app/settings.py` you must declare the environment variables already created by the Docker into DATABASES in order to set up your PostgreSql database.
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ.get('DB_HOST'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+    }
+}
+```
+
 ### Run Python unit tests
 
 ```
