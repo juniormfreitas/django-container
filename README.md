@@ -31,3 +31,25 @@ docker-compose run app sh -c "python manage.py startapp core"
 ```
 docker-compose run app sh -c "python manage.py test"
 ```
+
+### Run a Django App in the browser
+
+To start a Django container in the browser `localhost:8000`.
+
+```
+docker-compose up
+```
+
+or if you want run the process in background
+
+```
+docker-compose up -d
+```
+
+### Create a super user
+
+In order do access the admin side on `localhost:8000/admin/` for the first time you must create a super user.
+
+```
+docker-compose run app sh -c "python manage.py createsuperuser"
+```
