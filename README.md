@@ -87,3 +87,11 @@ In order do access the admin side on `localhost:8000/admin/` for the first time 
 ```
 docker-compose run app sh -c "python manage.py createsuperuser"
 ```
+
+### Troubleshooting
+
+Your code editor might not see the Django Rest Framework files. To fix that you need to install Django Rest Framework locally running the following command:
+
+```
+python3 -m pip install djangorestframework
+```
